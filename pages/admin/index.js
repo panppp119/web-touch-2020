@@ -1,15 +1,31 @@
 import React from 'react'
 
-import CoreLayout from '../../components/layout/CoreLayout'
+import AdminLayout from '../../components/layout/AdminLayout'
 import { AdminContainer } from './admin.style'
 
 const Admin = () => {
   return (
-    <CoreLayout title='Careers Page'>
+    <AdminLayout title='Login | Admin'>
       <AdminContainer>
-        <h1>Admin Page</h1>
+        <div className='login-form'>
+          <h1>Login</h1>
+
+          <div className='form-field'>
+            <label htmlFor='username'>Username</label>
+            <input type='text' id='username' />
+          </div>
+
+          <div className='form-field'>
+            <label htmlFor='password'>Password</label>
+            <input type='text' id='password' />
+          </div>
+
+          <div className='form-field'>
+            <button>Login</button>
+          </div>
+        </div>
       </AdminContainer>
-    </CoreLayout>
+    </AdminLayout>
   )
 }
 
