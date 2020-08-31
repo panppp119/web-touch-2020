@@ -2,6 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import styled from 'styled-components'
 
+import SideMenu from '../../components/layout/SideMenu'
+
 const AdminLayoutContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -11,11 +13,15 @@ const AdminLayoutContainer = styled.div`
 `
 
 const AdminLayout = (props) => {
+  const isAminLogin = props.title.includes('Login')
+
   return (
     <AdminLayoutContainer>
       <Head>
         <title>{props.title}</title>
       </Head>
+
+      {!isAminLogin && <SideMenu />}
 
       {props.children}
     </AdminLayoutContainer>
