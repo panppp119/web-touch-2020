@@ -75,8 +75,12 @@ const SideMenu = (props) => {
   }, [])
 
   const handleMenuSelcted = (menu) => {
-    setMenuSelected(menu)
-    setShowSubMenu(true)
+    if (menuSelected === menu) {
+      setShowSubMenu(!showSubMenu)
+    } else {
+      setMenuSelected(menu)
+      setShowSubMenu(true)
+    }
   }
 
   return (
