@@ -21,7 +21,7 @@ const AdminLayout = (props) => {
       const isLoggedIn = localStorage.getItem('token') !== null
 
       if (!isLoggedIn) {
-        window.open(`${window.location.origin}/admin`, '_self')
+        // window.open(`${window.location.origin}/admin`, '_self')
       }
     }
   }, [])
