@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import styled from 'styled-components'
+import { withRouter, Router } from 'next/router'
 
 import SideMenu from '../../components/layout/SideMenu'
 
@@ -15,6 +16,16 @@ const AdminLayoutContainer = styled.div`
 const AdminLayout = (props) => {
   const isAminLogin = props.title.includes('Login')
 
+  useEffect(() => {
+    if (props.router.pathname !== '/admin') {
+      const isLoggedIn = localStorage.getItem('token') !== null
+
+      if (!isLoggedIn) {
+        window.open(`${window.location.origin}/admin`, '_self')
+      }
+    }
+  }, [])
+
   return (
     <AdminLayoutContainer>
       <Head>
@@ -28,4 +39,4 @@ const AdminLayout = (props) => {
   )
 }
 
-export default AdminLayout
+export default withRouter(AdminLayout)
